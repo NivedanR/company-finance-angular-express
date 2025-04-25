@@ -1,0 +1,101 @@
+<!-- <div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      </div>
+  
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+  
+      <button type="submit">Login</button>
+    </form>
+  </div> -->
+  
+
+
+
+   <!-- <div class="login-container">
+    <h2>Login</h2>
+    
+     Login Form 
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      </div>
+  
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+  
+      <button type="submit">Login</button>
+    </form>
+    
+    <hr />
+  
+     Register New User Form 
+     <div class="register-container">
+      <h3>New User?</h3>
+      <button (click)="toggleRegisterForm()" class="register-button">Create an Account</button>
+    </div>
+  
+     Register Form - Initially Hidden 
+    <div *ngIf="showRegisterForm" class="register-form">
+      <h3>Register</h3>
+      <form (ngSubmit)="register()">
+        <div>
+          <label for="newUsername">Username:</label>
+          <input type="text" id="newUsername" [(ngModel)]="newUsername" name="newUsername" required />
+        </div>
+  
+        <div>
+          <label for="newPassword">Password:</label>
+          <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required />
+        </div>
+  
+        <div>
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+        </div>
+  
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div> -->
+
+
+
+  <div class="login-container">
+    <h2>Login</h2>
+  
+    <!-- Login Form -->
+    <form (ngSubmit)="login()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      </div>
+  
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+  
+      <button type="submit">Login</button>
+    </form>
+  
+    <hr />
+  
+    <!-- Register New User Form -->
+    <div class="register-container">
+      <h3>New User?</h3>
+      <!-- Using routerLink to redirect to the register page -->
+      <button [routerLink]="'/register'" class="register-button">Create an Account</button>
+    </div>
+  </div>
+  
+   

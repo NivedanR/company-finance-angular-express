@@ -1,0 +1,82 @@
+/* Container for the entire login form */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f4f7fc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Heading Styling */
+  .login-container h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Form Label Styling */
+  form label {
+    font-size: 1rem;
+    color: #555;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  
+  /* Input Fields Styling */
+  form input {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  form input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Submit Button Styling */
+  form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Add a smooth transition for input fields */
+  form input,
+  form button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    form button {
+      font-size: 1rem;
+    }
+  }
+  
+  

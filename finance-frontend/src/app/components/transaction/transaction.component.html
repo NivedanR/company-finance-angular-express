@@ -1,0 +1,87 @@
+<div class="transaction-container">
+  <div class="summary-container">
+    <div><strong>Total Credited:</strong> ₹{{ totalCredit }}</div>
+    <div><strong>Total Debited:</strong> ₹{{ totalDebit }}</div>
+  </div>
+
+  <h2>My Transactions</h2>
+  <form (ngSubmit)="addTransaction()">
+    <!-- form fields unchanged -->
+    <!-- same form inputs for newTransaction -->
+    ...
+    <button type="submit">Add Transaction</button>
+    <button type="button" (click)="logout()">Logout</button>
+  </form>
+
+  <hr />
+
+  <h3>Filter Transactions</h3>
+  <div class="filters" style="margin: 20px 0;">
+    <label>
+      Filter:
+      <select [(ngModel)]="selectedFilter" (change)="calculateTotals()" name="filterSelect">
+        <option value="all">All</option>
+        <option value="monthly">This Month</option>
+        <option value="weekly">This Week</option>
+      </select>
+    </label>
+
+    <label>
+      Start Date:
+      <input type="date" [(ngModel)]="startDate" (change)="calculateTotals()" name="startDate" />
+    </label>
+
+    <label>
+      End Date:
+      <input type="date" [(ngModel)]="endDate" (change)="calculateTotals()" name="endDate" />
+    </label>
+
+    <label>
+      Category:
+      <input type="text" [(ngModel)]="selectedCategory" (input)="calculateTotals()" placeholder="e.g., groceries" name="categoryInput" />
+    </label>
+
+    <label>
+      Account:
+      <input type="text" [(ngModel)]="selectedAccount" (input)="calculateTotals()" placeholder="e.g., bank" name="accountInput" />
+    </label>
+  </div>
+
+  <div *ngFor="let tx of getFilteredTransactions()" class="transaction-card">
+    <p><strong>Type:</strong> {{ tx.type }}</p>
+    <p><strong>Amount:</strong> ₹{{ tx.amount }}</p>
+    <p><strong>Description:</strong> {{ tx.description }}</p>
+    <p><strong>Date:</strong> {{ tx.date | date }}</p>
+    <p><strong>Account:</strong> {{ tx.account }}</p>
+    <p><strong>Category:</strong> {{ tx.category }}</p>
+  </div>
+
+  <div class="export-container">
+    <label for="exportDate">Export Transactions From:</label>
+    <input type="date" [(ngModel)]="exportDate" id="exportDate" name="exportDate" />
+    <button type="button" (click)="exportToPDF()">Export to PDF</button>
+  </div>
+
+  <hr />
+
+  <h3>Transaction Charts</h3>
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-around;">
+    <div style="width: 400px;">
+      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [type]="pieChartType"></canvas>
+    </div>
+
+    <div style="width: 600px;">
+      <canvas baseChart [data]="barChartData" [labels]="barChartLabels" [type]="barChartType"></canvas>
+    </div>
+  </div>
+
+  <div class="report-form">
+    <h3>Send Transaction Summary Report</h3>
+    <input [(ngModel)]="reportEmail" type="email" placeholder="Enter email" name="reportEmail" />
+    <select [(ngModel)]="reportFrequency" name="reportFrequency">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+    </select>
+    <button (click)="sendSummaryReport()">Send Report</button>
+  </div>
+</div>
